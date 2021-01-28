@@ -13,7 +13,9 @@ buildscript {
             junit: "5.6.2",
             hamcrest: "2.2",
             mockk: "1.10.0",
-            espresso: "3.2.0"
+            espresso: "3.2.0",
+            jacoco: "0.8.3",
+            sonar: "3.0"
     ]
 
     ext.jupiter = [
@@ -44,6 +46,8 @@ buildscript {
         classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$versions.detekt"
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:$versions.dokka"
         classpath "de.mannodermaus.gradle.plugins:android-junit5:1.6.1.0"
+        classpath "org.jacoco:org.jacoco.core:$versions.jacoco"
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:$versions.sonar"
     }
 }
 
@@ -61,6 +65,8 @@ subprojects {
 allprojects {
     apply from: "$rootDir/config/detekt/detekt.gradle"
     apply from: "$rootDir/config/dokka/dokka.gradle"
+    apply from: "$rootDir/config/jacoco/jacoco.gradle"
+    apply from: "$rootDir/config/sonar/sonar.gradle"
     repositories {
         google()
         jcenter()

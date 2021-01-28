@@ -15,3 +15,6 @@
     - Hamcrest 2
     - Mockk
     - Espresso 3
+* Покрытие 
+    - Jacoco
+    
