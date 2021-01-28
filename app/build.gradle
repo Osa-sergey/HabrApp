@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-
+apply plugin: 'de.mannodermaus.android-junit5'
 
 android {
     compileSdkVersion 30
@@ -28,6 +28,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    lintOptions {
+        abortOnError false
+        ignoreWarnings true
+    }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -43,7 +48,18 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.2.1'
 
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    // Junit 5
+    testImplementation jupiter.api
+    testRuntimeOnly jupiter.engine
+    testImplementation jupiter.params
+
+    // Hamcrest
+    implementation hamcrest.hamcrest
+
+    // Mockk
+    testImplementation mockk.mockk
+
+    // Espresso
+    androidTestImplementation espresso.core
+
 }

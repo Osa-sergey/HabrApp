@@ -10,3 +10,8 @@
     - Detekt
 * Документирование 
     - Dokka
+* Тестирование 
+    - Junit 5
+    - Hamcrest 2
+    - Mockk
+    - Espresso 3
