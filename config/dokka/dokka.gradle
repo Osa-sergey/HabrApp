@@ -1,0 +1,12 @@
+apply plugin: 'org.jetbrains.dokka'
+
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "$rootDir/app/build/reports/javaDoc.html"
+    includeNonPublic = true
+    skipDeprecated = true
+    reportUndocumented = false
+    skipEmptyPackages = true
+    jdkVersion = 8
+    includes = ["$rootDir/config/dokka/packages.md"]
+}

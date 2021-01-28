@@ -8,7 +8,8 @@ buildscript {
             android: "28.0.0",
             constraintlayout: "2.0.4",
             detekt: "1.11.0-RC2",
-            ktlint: "9.3.0"
+            ktlint: "9.3.0",
+            dokka: "0.9.16"
     ]
 
     repositories {
@@ -19,7 +20,7 @@ buildscript {
         classpath "com.android.tools.build:gradle:4.1.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
         classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$versions.detekt"
-
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:$versions.dokka"
     }
 }
 
@@ -36,6 +37,7 @@ subprojects {
 
 allprojects {
     apply from: "$rootDir/config/detekt/detekt.gradle"
+    apply from: "$rootDir/config/dokka/dokka.gradle"
     repositories {
         google()
         jcenter()
